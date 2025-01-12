@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "colombia"
+version = "2025.2"
+requires-python = ">=3.11"
+dependencies = [
+    "redis==5.2.0",
+    "boto3==1.35.57",
+    "botocore==1.35.60",
+    "openpyxl==3.1.5",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

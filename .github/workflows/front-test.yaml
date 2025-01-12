@@ -1,0 +1,50 @@
+name: 🧪 Test Backend
+
+on:
+  workflow_run:
+      workflows: ["Build and push"]
+      types:
+        - completed
+        
+  push:
+    branches: 
+      - dev
+      - main
+      - feature/*
+    paths:
+      - 'front/**'
+
+  pull_request:
+    branches: 
+      - dev
+      - main
+      - feature/*
+    paths:
+      - 'front/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./front
+
+    steps:
+    - name: 📂 Checkout
+      uses: actions/checkout@v3
+    
+    - name: 🔵 Set up Python 3.11
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.11
+        cache: 'pip'
+
+    - name: ⏬ Install dependencies
+      run: |
+        pip install -e .
+        pip install pytest
+        
+    - name: ✅ Run tests
+      run: |
+        pytest test
+        
