@@ -3,9 +3,8 @@ import os
 from datetime import date, datetime
 from logging.handlers import RotatingFileHandler
 
-from pytz import timezone
-
 from modules.setup_env import get_env_instance
+from pytz import timezone
 
 
 class CustomFormatter(logging.Formatter):
