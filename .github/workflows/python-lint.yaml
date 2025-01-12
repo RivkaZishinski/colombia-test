@@ -1,11 +1,27 @@
 name: 🧹 Python Lint
 
-on:
-  push
+  push:
+    branches:
+      - dev
+      - main
+      - feature/*
+    paths:
+      - 'front/**'
+
+  pull_request:
+    branches:
+      - dev
+      - main
+      - feature/*
+    paths:
+      - 'front/**'
 
 jobs:
   lint:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./front
     steps:
       - name: 📁 Checkout
         uses: actions/checkout@v4
