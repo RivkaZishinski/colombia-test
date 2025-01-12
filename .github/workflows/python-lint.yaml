@@ -1,28 +1,12 @@
+
 name: 🧹 Python Lint
 
 on:
-  push:
-    branches:
-      - dev
-      - main
-      - feature/*
-    paths:
-      - 'front/**'
-
-  pull_request:
-    branches:
-      - dev
-      - main
-      - feature/*
-    paths:
-      - 'front/**'
+  push
 
 jobs:
   lint:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./front
     steps:
       - name: 📁 Checkout
         uses: actions/checkout@v4
@@ -32,10 +16,10 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: ⏬ Install dependencies
+      - name: ⬆️ Install dependencies
         run: |
-          pip install --upgrade pip
-          pip install .[dev]
+          python -m pip install --upgrade pip
+          pip install ruff pre-commit
 
       - name: 💄 Run Ruff
         run: |

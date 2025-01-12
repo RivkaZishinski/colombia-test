@@ -1,5 +1,5 @@
 def test_always_passes():
-    assert True
+    assert False
 
 
 def test_always_fails():
