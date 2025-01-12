@@ -12,6 +12,11 @@ dependencies = [
     "botocore==1.35.60",
     "openpyxl==3.1.5",
 ]
-
+[project.optional-dependencies]
+dev = [
+    "pytest==8.2.2",
+    "ruff==0.8.6",
+    "pre-commit==4.0.1"
+]
 [tool.setuptools.packages.find]
 where = ["src"]
