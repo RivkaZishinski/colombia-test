@@ -2,7 +2,9 @@
 name: 🧹 Backend Lint
 
 on:
-  push
+  push:
+    paths:
+      - 'backend/**'
 
 jobs:
   lint:

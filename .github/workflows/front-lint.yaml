@@ -2,7 +2,9 @@
 name: 🧹 Front Lint
 
 on:
-  push
+  push:
+    paths:
+      - 'front/**'
 
 jobs:
   lint:
